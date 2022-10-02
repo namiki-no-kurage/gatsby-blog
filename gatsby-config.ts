@@ -21,7 +21,23 @@ const config: GatsbyConfig = {
       "path": "./src/images/"
     },
     __key: "images"
-  }]
+  },
+  {
+    resolve: 'gatsby-source-microcms',
+    options: {
+      apiKey: process.env.MICROCMS_API_KEY,
+      serviceId: process.env.MICROCMS_SERVICE_ID,
+      apis: [
+        {
+          endpoint: 'blogs',
+        },
+        {
+          endpoint: 'categories'
+        }
+      ]
+    }
+  }
+]
 };
 
 export default config;
